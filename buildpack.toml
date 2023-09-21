@@ -16,16 +16,16 @@ api = "0.7"
 
 [buildpack]
   description = "A Cloud Native Buildpack that builds Maven-based applications from source"
-  homepage = "https://github.com/paketo-buildpacks/maven"
-  id = "paketo-buildpacks/maven"
+  homepage = "https://github.com/showpune/maven"
+  id = "showpune/maven"
   keywords = ["java", "maven", "build-system"]
-  name = "Paketo Buildpack for Maven"
+  name = "Showpune Buildpack for Maven"
   sbom-formats = ["application/vnd.cyclonedx+json", "application/vnd.syft+json"]
   version = "{{.version}}"
 
   [[buildpack.licenses]]
     type = "Apache-2.0"
-    uri = "https://github.com/paketo-buildpacks/maven/blob/main/LICENSE"
+    uri = "https://github.com/showpune/maven/blob/main/LICENSE"
 
 [metadata]
   include-files = ["LICENSE", "NOTICE", "README.md", "bin/build", "bin/detect", "bin/main", "buildpack.toml"]
@@ -107,6 +107,12 @@ api = "0.7"
     default = ""
     description = "configure a project subdirectory to look for `package.json` and `yarn.lock` files"
     name = "BP_NODE_PROJECT_PATH"
+
+  [[metadata.configurations]]
+    build = true
+    default = "false"
+    description = "just build the source code and no application generate"
+    name = "BP_MAVEN_BUILD_ONLY"
 
   [[metadata.dependencies]]
     cpes = ["cpe:2.3:a:apache:maven:3.8.6:*:*:*:*:*:*:*"]

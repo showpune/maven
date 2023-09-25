@@ -117,7 +117,7 @@ func (b Build) Build(context libcnb.BuildContext) (libcnb.BuildResult, error) {
 	}
 	if _, jvmAppFound, err := pr.Resolve(PlanEntryJVMApplicationPackage); err != nil {
 		return libcnb.BuildResult{}, fmt.Errorf("unable to resolve JVM Application Package plan entry\n%w", err)
-	} else if _, buildOnlyFound, err := pr.Resolve(PlanEntryMavenBuildOnly); err != nil {
+	} else if _, buildOnlyFound, err := pr.Resolve(PlanEntryBuildOnly); err != nil {
 		return libcnb.BuildResult{}, fmt.Errorf("unable to resolve Build Only plan entry\n%w", err)
 	} else if buildOnlyFound || jvmAppFound {
 		bomScanner := sbom.NewSyftCLISBOMScanner(context.Layers, effect.NewExecutor(), b.Logger)

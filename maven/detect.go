@@ -30,7 +30,7 @@ import (
 
 const (
 	PlanEntryMaven                 = "maven"
-	PlanEntryMavenBuildOnly        = "maven-build-only"
+	PlanEntryBuildOnly             = "build-only"
 	PlanEntryJVMApplicationPackage = "jvm-application-package"
 	PlanEntryJDK                   = "jdk"
 	PlanEntrySyft                  = "syft"
@@ -146,13 +146,12 @@ func (Detect) Detect(context libcnb.DetectContext) (libcnb.DetectResult, error) 
 					{
 						Provides: []libcnb.BuildPlanProvide{
 							{Name: PlanEntryMaven},
-							{Name: PlanEntryMavenBuildOnly},
+							{Name: PlanEntryBuildOnly},
 						},
 						Requires: []libcnb.BuildPlanRequire{
 							{Name: PlanEntrySyft},
 							{Name: PlanEntryJDK},
 							{Name: PlanEntryMaven},
-							{Name: PlanEntryMavenBuildOnly},
 						},
 					},
 				},
